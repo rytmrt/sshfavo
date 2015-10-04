@@ -1,0 +1,6 @@
+name = "test-server"
+host = "hostname"
+loginUser = "loginUser"
+identityFile = "identityFile"
+usePassword = false
+port = 22
