@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"path/filepath"
 	"testing"
 )
 
@@ -31,7 +33,12 @@ func TestNewServerFromCmdOpts(t *testing.T) {
 }
 
 func TestNewServerFromToml(t *testing.T) {
-	tomlFile := "/Users/rytmrt/go14/src/github.com/rytmrt/ssh-favorites/test/test_server_info.toml"
+	serverListPath, _ := filepath.Abs("./test")
+	var buf bytes.Buffer
+	buf.WriteString(serverListPath)
+	buf.WriteString("/test_server_info.toml")
+	tomlFile := buf.String()
+
 	r, _ := NewServerFromToml(tomlFile)
 
 	testResult := Server{
@@ -49,7 +56,4 @@ func TestNewServerFromToml(t *testing.T) {
 }
 
 func TestServerToml(t *testing.T) {
-}
-
-func TestServerCreateSshConfig(t *testing.T) {
 }
