@@ -18,9 +18,10 @@ type SubCmd interface {
 func Run(args []string) int {
 
 	var (
-		help  bool
-		edit  string
-		login string
+		version bool
+		help    bool
+		edit    string
+		login   string
 	)
 
 	// Define option flag parse
@@ -28,6 +29,7 @@ func Run(args []string) int {
 	flags.Usage = func() {
 		NewHelp().Run()
 	}
+	flags.BoolVar(&version, "v", false, "show version")
 	flags.BoolVar(&help, "h", false, "show help")
 	flags.StringVar(&edit, "e", "false", "edit")
 	flags.StringVar(&login, "l", "false", "login")
@@ -42,6 +44,8 @@ func Run(args []string) int {
 	)
 
 	switch {
+	case version:
+		cmd = NewVerson()
 	case edit != "false" && login != "false":
 		cmd = NewHelp()
 	case edit != "false":
