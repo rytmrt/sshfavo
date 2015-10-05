@@ -47,7 +47,7 @@ func Run(args []string) int {
 	case edit != "false":
 		cmd = NewEdit(edit)
 	case login != "false":
-		cmd = NewLogin()
+		cmd = NewLogin(login)
 	case help:
 		cmd = NewHelp()
 	default:

@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"io/ioutil"
+	"os"
 )
 
 type List struct {
@@ -32,4 +33,15 @@ func (self *List) GetServer(name string) (server *Server, err error) {
 	buf.WriteString(".toml")
 	server, _ = NewServerFromToml(buf.String())
 	return
+}
+
+func (self *List) ExistServer(name string) bool {
+	var buf bytes.Buffer
+	buf.WriteString(self.ListPath)
+	buf.WriteString("/")
+	buf.WriteString(name)
+	buf.WriteString(".toml")
+	serverFilePath := buf.String()
+	_, e := os.Stat(serverFilePath)
+	return e == nil
 }

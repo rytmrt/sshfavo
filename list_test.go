@@ -43,3 +43,18 @@ func TestGetServer(t *testing.T) {
 		t.Errorf("res :%#v", r)
 	}
 }
+
+func TestExistServer(t *testing.T) {
+
+	serverListPath, _ := filepath.Abs("./test")
+	testServer := "test_server_info"
+	list := NewList(serverListPath)
+	exist := list.ExistServer(testServer)
+	if !exist {
+		t.Errorf("'%s/%s.toml' is not exist!", serverListPath, testServer)
+	}
+	exist = list.ExistServer("dummy")
+	if exist {
+		t.Errorf("'dummy' is exist!")
+	}
+}
