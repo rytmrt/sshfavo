@@ -1,14 +1,34 @@
 # sshfavo
 
-自分用のsshログイン保存ツール
+sshログイン保存ツール
 
 Macでコマンドラインから使えるようになっています。
 
 他の環境では試してないけど、SSHとか入ってれば使えるかも？
 
 
-## Usage
+## インストール方法
+
+### Homebrewでインストール
 
 ```bash
+brew tap rytmrt/sshfavo
+brew install sshfavo
+```
+
+
+## 使い方
+
+### ログイン情報を作成（編集）
+
+```bash
+sshfavo -e <ログイン名>
+```
+
+
+### 登録したログイン情報でログイン
+
+```bash
+sshfavo -l <ログイン名>
 ```
 
