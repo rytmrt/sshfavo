@@ -12,7 +12,7 @@ Macでコマンドラインから使えるようになっています。
 ### Homebrewでインストール
 
 ```bash
-brew tap rytmrt/sshfavo
+brew tap rytmrt/rytmrt
 brew install sshfavo
 ```
 
