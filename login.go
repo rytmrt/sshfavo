@@ -38,6 +38,7 @@ func (self *Login) Run() (err error) {
 			cmd = exec.Command("ssh", server.Host, "-l", server.LoginUser, "-p", strconv.Itoa(server.Port), "-i", server.IdentityFile)
 		}
 		cmd.Stdout = os.Stdout
+		cmd.Stderr = os.Stderr
 		cmd.Stdin = os.Stdin
 		err = cmd.Run()
 	} else {
