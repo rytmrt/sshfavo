@@ -10,7 +10,7 @@ type Version struct {
 
 func NewVersion() *Version {
 	i := Version{
-		Name: "0.1.1",
+		Name: "0.1.2",
 	}
 	return &i
 }
