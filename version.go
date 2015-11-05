@@ -8,7 +8,7 @@ type Version struct {
 	Name string
 }
 
-func NewVerson() *Version {
+func NewVersion() *Version {
 	i := Version{
 		Name: "0.1.1",
 	}
